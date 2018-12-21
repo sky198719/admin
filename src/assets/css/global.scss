@@ -1,0 +1,58 @@
+*{
+	padding:0;
+	margin:0;
+	list-style-type:none;
+	font-family:'Microsoft YaHei';
+}
+a{
+	text-decoration:none;
+}
+img{
+	border:none;
+	display:block;
+}
+
+.header{
+	width:800px;
+	height:50px;
+	margin:0 auto;
+	position:relative;
+	ul{
+		width:600px;
+		height:50px;
+		li{
+			width:150px;
+			height:50px;
+			line-height:50px;
+			float:left;
+			display:inline;
+			cursor:pointer;
+			a{
+				color:#000000;
+				display:block;
+			}
+		}
+		.current{
+			color:#0000ff;
+			a{
+				color:#0000ff;
+			}
+		}
+	}
+	span{
+		width:200px;
+		height:50px;
+		line-height:50px;
+		top:0;
+		right:0;
+		position:absolute;
+		display:block;
+		text-align:right;
+		em{
+			font-style:normal;
+			line-height:50px;
+			margin-left:10px;
+			cursor:pointer;
+		}
+	}
+}
