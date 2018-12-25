@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {getData} from './../../assets/js/global.js'
+import {getData,localPath} from './../../assets/js/global.js'
 
 export default{
 	data(){
@@ -30,9 +30,9 @@ export default{
 			.then((res) => {
 				if(res.code == 0){
 					if(res.data.usertype == 0){
-						window.location.href = '/managerment#/userlist'
+						window.location.href = localPath + '/managerment#/userlist'
 					}else{
-						window.location.href = '/member#/mylist/' + res.data.id
+						window.location.href = localPath + '/member#/mylist/' + res.data.id
 					}
 				}else{
 					alert(res.message)
