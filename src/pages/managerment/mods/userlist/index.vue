@@ -2,11 +2,11 @@
 	<div class="userlist">
 		<table>
 			<tr>
-				<th>姓名</th>
-				<th>账号</th>
-				<th>密码</th>
-				<th>最后登录</th>
-				<th>操作</th>
+				<th width=200>姓名</th>
+				<th width=200>账号</th>
+				<th width=250>密码</th>
+				<th width=250>最后登录</th>
+				<th width=300>操作</th>
 			</tr>
 			<tr v-for="(item,index) in userlist" :key="index">
 				<td :class="item.usertype == 0 ? 'current' : ''">{{item.realname}}</td>
@@ -95,16 +95,16 @@ export default{
 
 <style lang="scss" type="text/css">
 .userlist{
-	width:800px;
+	width:1200px;
 	margin:0 auto;
 	table{
-		width:800px;
+		width:1200px;
 		border:1px solid #666666;
 		border-left:none;
 		border-top:none;
 		border-collapse:collapse;
 		tr{
-			width:800px;
+			width:1200px;
 			height:40px;
 			th{
 				box-sizing:border-box;

@@ -5,23 +5,17 @@ import VuexAlong from 'vuex-along'
 
 import './../../assets/css/global.scss'
 
-import Managerment from './index.vue'
-import Userlist from './mods/userlist/index.vue'
-import Projectlist from './mods/projectlist/index.vue'
+import Member from './index.vue'
+import Mylist from './mods/mylist/index.vue'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
 
 const routes = [
 	{
-		path:'/userlist',
-		name:'userlist',
-		component:Userlist
-	},
-	{
-		path:'/projectlist',
-		name:'projectlist',
-		component:Projectlist
+		path:'/mylist/:id',
+		name:'mylist',
+		component:Mylist
 	}
 ]
 
@@ -53,5 +47,5 @@ new Vue({
 	el:'#index',
 	router,
 	store,
-	render:h=>h(Managerment)
+	render:h=>h(Member)
 })

@@ -2,25 +2,25 @@
 	<div class="projectlist">
 		<table>
 			<tr>
-				<th width=250>项目名称</th>
-				<th width=125>开始时间</th>
-				<th width=125>截止时间</th>
-				<th width=100>负责人</th>
-				<th width=75>绩效点数</th>
-				<th width=125>操作</th>
+				<th width=450>项目名称</th>
+				<th width=150>开始时间</th>
+				<th width=150>截止时间</th>
+				<th width=150>完成时间</th>
+				<th width=150>负责人</th>
+				<th width=150>操作</th>
 			</tr>
 			<tr v-for="(item,index) in projectlist" :key="index">
-				<td width=250><input type="text" :value="item.projectname" disabled /></td>
-				<td width=125><input type="text" :value="item.opentime" disabled /></td>
-				<td width=125><input type="text" :value="item.limittime" disabled /></td>
-				<td width=100>
+				<td width=450><input type="text" :value="item.projectname" disabled /></td>
+				<td width=150><input type="text" :value="item.opentime" disabled /></td>
+				<td width=150><input type="text" :value="item.limittime" disabled /></td>
+				<td width=150><input type="text" :value="item.endtime" disabled /></td>
+				<td width=150>
 					<strong class="">{{item.realname}}</strong>
 					<select class="hide">
 						<option v-for="(item2,index2) in userlist" :key="index2" :attr-id="item2.id">{{item2.realname}}</option>
 					</select>
 				</td>
-				<td width=75><input type="text" :value="item.point" disabled /></td>
-				<td width=125>
+				<td width=150>
 					<span :attr-id="item.id" @click="deleteProject($event)">删除</span>
 					<span :attr-id="item.id" class="" @click="editStatus($event)">修改</span>
 					<span :attr-id="item.id" class="hide" @click="updateProject($event)">保存</span>
@@ -79,12 +79,12 @@ export default{
 		},
 		editStatus(e){
 			for(let i = 0 ; i < e.currentTarget.parentNode.parentNode.children.length - 1 ; i++){
-				if(i != 3){
+				if(i != 4){
 					e.currentTarget.parentNode.parentNode.querySelectorAll('td')[i].querySelector('input').removeAttribute('disabled')
 				}
 			}
-			e.currentTarget.parentNode.parentNode.querySelectorAll('td')[3].querySelector('strong').setAttribute('class','hide')
-			e.currentTarget.parentNode.parentNode.querySelectorAll('td')[3].querySelector('select').setAttribute('class','')
+			e.currentTarget.parentNode.parentNode.querySelectorAll('td')[4].querySelector('strong').setAttribute('class','hide')
+			e.currentTarget.parentNode.parentNode.querySelectorAll('td')[4].querySelector('select').setAttribute('class','')
 			e.currentTarget.setAttribute('class','hide')
 			e.currentTarget.parentNode.querySelectorAll('span')[2].setAttribute('class','')
 		},
@@ -94,18 +94,18 @@ export default{
 				projectname:e.currentTarget.parentNode.parentNode.querySelectorAll('td')[0].querySelector('input').value,
 				opentime:e.currentTarget.parentNode.parentNode.querySelectorAll('td')[1].querySelector('input').value,
 				limittime:e.currentTarget.parentNode.parentNode.querySelectorAll('td')[2].querySelector('input').value,
-				ownerid:e.currentTarget.parentNode.parentNode.querySelectorAll('td')[3].querySelector('select').options[e.currentTarget.parentNode.parentNode.querySelectorAll('td')[3].querySelector('select').selectedIndex].getAttribute('attr-id'),
-				point:e.currentTarget.parentNode.parentNode.querySelectorAll('td')[4].querySelector('input').value
+				ownerid:e.currentTarget.parentNode.parentNode.querySelectorAll('td')[4].querySelector('select').options[e.currentTarget.parentNode.parentNode.querySelectorAll('td')[4].querySelector('select').selectedIndex].getAttribute('attr-id'),
+				endtime:e.currentTarget.parentNode.parentNode.querySelectorAll('td')[3].querySelector('input').value
 			})
 			.then((res) => {
 				if(res.code == 0){
 					for(let i = 0 ; i < e.target.parentNode.parentNode.children.length - 1 ; i++){
-						if(i != 3){
+						if(i != 4){
 							e.target.parentNode.parentNode.querySelectorAll('td')[i].querySelector('input').setAttribute('disabled','disabled')
 						}
 					}
-					e.target.parentNode.parentNode.querySelectorAll('td')[3].querySelector('strong').setAttribute('class','')
-					e.target.parentNode.parentNode.querySelectorAll('td')[3].querySelector('select').setAttribute('class','hide')
+					e.target.parentNode.parentNode.querySelectorAll('td')[4].querySelector('strong').setAttribute('class','')
+					e.target.parentNode.parentNode.querySelectorAll('td')[4].querySelector('select').setAttribute('class','hide')
 					e.target.setAttribute('class','hide')
 					e.target.parentNode.querySelectorAll('span')[1].setAttribute('class','')
 					alert('修改成功')
@@ -137,16 +137,16 @@ export default{
 
 <style lang="scss" type="text/css">
 .projectlist{
-	width:800px;
+	width:1200px;
 	margin:0 auto;
 	table{
-		width:800px;
+		width:1200px;
 		border:1px solid #666666;
 		border-left:none;
 		border-top:none;
 		border-collapse:collapse;
 		tr{
-			width:800px;
+			width:1200px;
 			height:40px;
 			th{
 				box-sizing:border-box;

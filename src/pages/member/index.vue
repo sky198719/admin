@@ -1,5 +1,5 @@
 <template>
-	<div class="managerment">
+	<div class="member">
 		<Header></Header>
 		<router-view></router-view>
 	</div>
@@ -11,6 +11,14 @@ import Header from './mods/header/index.vue'
 
 export default{
 	methods:{
+		getCookie(name){
+			var arr,reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+		    if(arr = document.cookie.match(reg)){
+		    	return unescape(arr[2]);
+		    }else{
+		        return null; 
+		    }
+		},
 		checkToken(){
 			getData('post','/api/user/checkToken')
 			.then((res) => {

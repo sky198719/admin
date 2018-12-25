@@ -25,34 +25,15 @@ export default{
 		}
 	},
 	methods:{
-		getCookie(name){
-			var arr,reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-		    if(arr = document.cookie.match(reg)){
-		    	return unescape(arr[2]);
-		    }else{
-		        return null; 
-		    }
-		},
-		checkToken(){
-			getData('post','/api/user/checkToken',{token:this.getCookie('token')})
-			.then((res) => {
-				if(res.code == 0){
-					if(res.data.usertype == 0){
-						window.location.href = './../managerment'
-					}else{
-						console.log('成员' + res)
-					}
-				}else{
-					alert(res.message)
-					return false
-				}	
-			})
-		},
 		login(){
 			getData('post','/api/user/login',{username:this.username,password:this.password})
 			.then((res) => {
 				if(res.code == 0){
-					this.checkToken()
+					if(res.data.usertype == 0){
+						window.location.href = '/managerment#/userlist'
+					}else{
+						window.location.href = '/member#/mylist/' + res.data.id
+					}
 				}else{
 					alert(res.message)
 					return false

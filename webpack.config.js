@@ -10,7 +10,8 @@ module.exports = {
   mode:'development',
   entry:{
     login:'./src/pages/login/index.js',
-    managerment:'./src/pages/managerment/index.js'
+    managerment:'./src/pages/managerment/index.js',
+    member:'./src/pages/member/index.js'
   },
   output:{
     path:__dirname + "/dist/",
@@ -114,6 +115,14 @@ module.exports = {
       filename:__dirname + '/dist/managerment/index.html',
       template:__dirname + '/src/pages/managerment/index.html',
       chunks:['managerment'],
+      minify:{
+        collapseWhitespace:true,
+      }
+    }),
+    new HtmlWebpackPlugin({
+      filename:__dirname + '/dist/member/index.html',
+      template:__dirname + '/src/pages/member/index.html',
+      chunks:['member'],
       minify:{
         collapseWhitespace:true,
       }
