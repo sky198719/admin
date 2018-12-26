@@ -1,0 +1,5 @@
+::1 POST /api/user/login 200 739.774 ms --- 66 Wed, 26 Dec 2018 05:33:48 GMT
+::ffff:127.0.0.1 POST /api/user/checkToken 200 2.488 ms --- 112 Wed, 26 Dec 2018 05:33:49 GMT
+::1 GET /api/user/userList 200 2.619 ms --- 540 Wed, 26 Dec 2018 05:33:49 GMT
+::ffff:127.0.0.1 GET /api/user/userList 304 3.314 ms --- - Wed, 26 Dec 2018 05:34:07 GMT
+::1 GET /api/user/userList 304 1.962 ms --- - Wed, 26 Dec 2018 05:34:15 GMT

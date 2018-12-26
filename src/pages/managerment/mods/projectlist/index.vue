@@ -169,7 +169,7 @@ export default{
 					line-height:30px;
 					border:1px solid #dddddd;
 					background:none;
-					font-size:14px;
+					font-size:16px;
 					padding:0 5px;
 					color:#000000;
 					text-align:left;
