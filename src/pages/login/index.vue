@@ -30,9 +30,9 @@ export default{
 			.then((res) => {
 				if(res.code == 0){
 					if(res.data.usertype == 0){
-						window.location.href = localPath + '/managerment#/userlist'
+						window.location.href = localPath + 'managerment#/userlist'
 					}else{
-						window.location.href = localPath + '/member#/mylist/' + res.data.id
+						window.location.href = localPath + 'member#/mylist/' + res.data.id
 					}
 				}else{
 					alert(res.message)

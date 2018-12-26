@@ -1,17 +1,21 @@
 <template>
 	<div class="header">
-		<ul>
-			<li attr-id="0" :class="$store.state.active == 0 ? 'current' : ''" @click="getCurrentId($event)"><router-link to="./userlist">用户管理</router-link></li>
-			<li attr-id="1" :class="$store.state.active == 1 ? 'current' : ''" @click="getCurrentId($event)"><router-link to="./projectlist">项目管理</router-link></li>
+		<ul v-if="$store.state.userinfo.usertype == 0">
+			<li attr-id="0" :class="$store.state.active == 0 ? 'current' : ''" @click="getCurrentId($event)"><router-link to="/userlist">用户管理</router-link></li>
+			<li attr-id="1" :class="$store.state.active == 1 ? 'current' : ''" @click="getCurrentId($event)"><router-link to="/projectlist">项目管理</router-link></li>
+			<li attr-id="2" :class="$store.state.active == 2 ? 'current' : ''" @click="getCurrentId($event)"><router-link :to="'/mylist/' + $store.state.userinfo.id">我的项目</router-link></li>
 			<li @click="insertUser()">新增用户</li>
 			<li @click="insertProject()">新增项目</li>
 		</ul>
-		<span>你好，{{$store.state.userinfo.realname}}<em @click="logout()">注销</em></span>
+		<ul v-if="$store.state.userinfo.usertype == 1">
+			<li attr-id="2" :class="$store.state.active == 2 ? 'current' : ''" @click="getCurrentId($event)"><router-link :to="'/mylist/' + $store.state.userinfo.id">我的项目</router-link></li>
+		</ul>
+		<span>你好，<router-link to="/personal">{{$store.state.userinfo.realname}}</router-link><em @click="logout()">注销</em></span>
 	</div>
 </template>
 
 <script>
-import {getData} from './../../../../assets/js/global.js'
+import {getData} from './../../assets/js/global.js'
 
 export default{
 	methods:{

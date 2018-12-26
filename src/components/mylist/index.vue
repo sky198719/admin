@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import {getData} from './../../../../assets/js/global.js'
+import {getData} from './../../assets/js/global.js'
 
 export default{
 	data(){

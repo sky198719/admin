@@ -159,6 +159,63 @@ app.post('/api/user/updatePassword',function(req,res,params){
 	})
 })
 
+app.post('/api/user/updataUserinfo',function(req,res,params){
+	initToken(req,res,params,function(){
+		if(!req.body.realname){
+			res.send(JSON.stringify({code:1,message:'缺少必要参数：真实姓名'}))
+			return false
+		}else if(!req.body.oldpassword){
+			res.send(JSON.stringify({code:1,message:'缺少必要参数：原密码'}))
+			return false
+		}else if(!req.body.newpassword){
+			res.send(JSON.stringify({code:1,message:'缺少必要参数：新密码'}))
+			return false
+		}else if(!req.body.id){
+			res.send(JSON.stringify({code:1,message:'缺少必要参数：id'}))
+			return false
+		}else{
+			if(params.token.substring(params.token.indexOf('f') + 1,params.token.indexOf('d')) == req.body.id){
+				connection.query('select password from user where id = ?',req.body.id,function(err1,results1){
+					if(err1){
+						res.send(err1)
+						return false
+					}else{
+						let counter = 0
+						let currentPassword = ''
+						for(let i = 0 ; i < results1.length ; i ++){
+							if(results1[i].password == req.body.oldpassword){
+								counter ++
+								currentPassword = results1[i].password
+							}
+						}
+						if(counter != 0){
+							if(currentPassword == req.body.newpassword){
+								res.send(JSON.stringify({code:2,message:'新密码和原密码相同'}))
+								return false
+							}else{
+								connection.query('update user set realname = ?,password = ? where id = ?',[req.body.realname,req.body.newpassword,req.body.id],function(err2,results2){
+									if(err2){
+										res.send(err2)
+										return false
+									}else{
+										res.send(JSON.stringify({code:0,message:'修改成功'}))
+									}
+								})
+							}
+						}else{
+							res.send(JSON.stringify({code:2,message:'原密码错误'}))
+							return false
+						}
+					}
+				})
+			}else{
+				res.send(JSON.stringify({code:3,message:'非当前登录用户'}))
+				return false
+			}
+		}
+	})
+})
+
 app.post('/api/user/deleteUser',function(req,res,params){
 	initToken(req,res,params,function(){
 		if(params.usertype == 0){
@@ -335,12 +392,14 @@ app.post('/api/user/checkToken',function(req,res){
 				let currentUsername = ''
 				let currentRealname = ''
 				let currentUsertype = ''
+				let currentId = ''
 				for(let i = 0 ; i < results1.length ; i ++){
 					if(req.cookies.token == results1[i].token){
 						counter ++
 						currentRealname = results1[i].realname
 						currentUsername = results1[i].username
 						currentUsertype = results1[i].usertype
+						currentId = results1[i].id
 					}
 				}
 				if(counter != 0){
@@ -349,7 +408,7 @@ app.post('/api/user/checkToken',function(req,res){
 						res.send(JSON.stringify({code:3,message:'token已过期'}))
 						return false
 					}else{
-						res.send(JSON.stringify({code:0,message:'token验证通过',data:{username:currentUsername,realname:currentRealname,usertype:currentUsertype}}))
+						res.send(JSON.stringify({code:0,message:'token验证通过',data:{id:currentId,username:currentUsername,realname:currentRealname,usertype:currentUsertype}}))
 					}
 				}else{
 					res.send(JSON.stringify({code:2,message:'无效的token'}))

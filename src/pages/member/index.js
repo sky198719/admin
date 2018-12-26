@@ -6,7 +6,8 @@ import VuexAlong from 'vuex-along'
 import './../../assets/css/global.scss'
 
 import Member from './index.vue'
-import Mylist from './mods/mylist/index.vue'
+import Mylist from './../../components/mylist/index.vue'
+import Personal from './../../components/personal/index.vue'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
@@ -16,6 +17,11 @@ const routes = [
 		path:'/mylist/:id',
 		name:'mylist',
 		component:Mylist
+	},
+	{
+		path:'/personal',
+		name:'personal',
+		component:Personal
 	}
 ]
 

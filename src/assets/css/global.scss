@@ -18,7 +18,7 @@ img{
 	margin:0 auto;
 	position:relative;
 	ul{
-		width:600px;
+		width:800px;
 		height:50px;
 		li{
 			width:150px;
@@ -48,6 +48,9 @@ img{
 		position:absolute;
 		display:block;
 		text-align:right;
+		a{
+			color:#0000ff;
+		}
 		em{
 			font-style:normal;
 			line-height:50px;

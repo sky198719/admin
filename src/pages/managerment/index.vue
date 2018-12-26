@@ -7,7 +7,7 @@
 
 <script>
 import {getData} from './../../assets/js/global.js'
-import Header from './mods/header/index.vue'
+import Header from './../../components/header/index.vue'
 
 export default{
 	methods:{
@@ -15,9 +15,9 @@ export default{
 			getData('post','/api/user/checkToken')
 			.then((res) => {
 				if(res.code == 0){
-					this.$store.commit('setUserinfo',{username:res.data.username,realname:res.data.realname,usertype:res.data.usertype})
-				}else{
+					this.$store.commit('setUserinfo',{id:res.data.id,username:res.data.username,realname:res.data.realname,usertype:res.data.usertype})
 					this.$store.commit('setActive',0)
+				}else{
 					alert(res.message)
 					window.location.href = './../login'
 				}

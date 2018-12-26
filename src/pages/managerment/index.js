@@ -8,6 +8,8 @@ import './../../assets/css/global.scss'
 import Managerment from './index.vue'
 import Userlist from './mods/userlist/index.vue'
 import Projectlist from './mods/projectlist/index.vue'
+import Personal from './../../components/personal/index.vue'
+import Mylist from './../../components/mylist/index.vue'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
@@ -22,6 +24,16 @@ const routes = [
 		path:'/projectlist',
 		name:'projectlist',
 		component:Projectlist
+	},
+	{
+		path:'/personal',
+		name:'personal',
+		component:Personal
+	},
+	{
+		path:'/mylist/:id',
+		name:'mylist',
+		component:Mylist
 	}
 ]
 
