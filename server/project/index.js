@@ -126,7 +126,7 @@ app.get('/api/project/projectList',function(req,res,params){
 			}
 		}else if(params.usertype == 1){
 			if(!req.query.ownerid){
-				res.send(JSON.stringify({code:1,message:'缺少必要参数：ownerid'}))
+				res.send(JSON.stringify({code:3,message:'权限不足'}))
 				return false
 			}else{
 				if(params.token.substring(params.token.indexOf('f') + 1,params.token.indexOf('d')) == req.query.ownerid){
