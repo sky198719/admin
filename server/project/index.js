@@ -217,7 +217,7 @@ app.post('/api/project/deleteProject',function(req,res,params){
 						}
 					}
 				})
-			}	
+			}
 		}else{
 			res.send(JSON.stringify({code:3,message:'权限不足'}))
 			return false
