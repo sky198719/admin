@@ -163,6 +163,13 @@ module.exports = {
     //     pathRewrite:{
     //       "^/api/project":""
     //     }
+    //   },
+    //   '/api/upload':{
+    //     target:'http://localhost:3003/api/upload',
+    //     changeOrigin:true,
+    //     pathRewrite:{
+    //       "^/api/upload":""
+    //     }
     //   }
     // }
   }

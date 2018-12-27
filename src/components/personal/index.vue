@@ -17,8 +17,12 @@
 				<label>新密码：</label>
 				<input type="password" v-model="newpassword" />
 			</li>
+			<li>
+				<label>上传头像：</label>
+				<input type="file" @change="handleChange($event)" />
+			</li>
 		</ul>
-		<button @click="updataUserinfo()">提交</button>
+		<button @click="uploadImg()">提交</button>
 	</div>
 </template>
 
@@ -31,7 +35,8 @@ export default{
 			realname:this.$store.state.userinfo.realname,
 			username:this.$store.state.userinfo.username,
 			oldpassword:'',
-			newpassword:''
+			newpassword:'',
+			upload:''
 		}
 	},
 	methods:{
@@ -41,6 +46,22 @@ export default{
 				if(res.code == 0){
 					alert('修改成功，请重新登录')
 					window.location.href = localPath + 'login'
+				}else{
+					alert(res.message)
+					return false
+				}
+			})
+		},
+		handleChange(e){
+			this.upload = e.target.files[0]
+		},
+		uploadImg(){
+			let data = new FormData()
+			data.append('file',this.upload)
+			getData('file','/api/upload/uploadImg',data)
+			.then((res) => {
+				if(res.code == 0){
+					this.updataUserinfo()
 				}else{
 					alert(res.message)
 					return false

@@ -392,14 +392,16 @@ app.post('/api/user/checkToken',function(req,res){
 				let currentUsername = ''
 				let currentRealname = ''
 				let currentUsertype = ''
-				let currentId = ''
+				let currentUserid = ''
+				let currentUserimg = ''
 				for(let i = 0 ; i < results1.length ; i ++){
 					if(req.cookies.token == results1[i].token){
 						counter ++
 						currentRealname = results1[i].realname
 						currentUsername = results1[i].username
 						currentUsertype = results1[i].usertype
-						currentId = results1[i].id
+						currentUserid = results1[i].id
+						currentUserimg = results1[i].img
 					}
 				}
 				if(counter != 0){
@@ -408,7 +410,7 @@ app.post('/api/user/checkToken',function(req,res){
 						res.send(JSON.stringify({code:3,message:'token已过期'}))
 						return false
 					}else{
-						res.send(JSON.stringify({code:0,message:'token验证通过',data:{id:currentId,username:currentUsername,realname:currentRealname,usertype:currentUsertype}}))
+						res.send(JSON.stringify({code:0,message:'token验证通过',data:{id:currentUserid,username:currentUsername,realname:currentRealname,usertype:currentUsertype,img:currentUserimg}}))
 					}
 				}else{
 					res.send(JSON.stringify({code:2,message:'无效的token'}))

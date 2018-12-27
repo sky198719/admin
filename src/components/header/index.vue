@@ -10,7 +10,7 @@
 		<ul v-if="$store.state.userinfo.usertype == 1">
 			<li attr-id="2" :class="$store.state.active == 2 ? 'current' : ''" @click="getCurrentId($event)"><router-link :to="'/mylist/' + $store.state.userinfo.id">我的项目</router-link></li>
 		</ul>
-		<span>你好，<router-link to="/personal">{{$store.state.userinfo.realname}}</router-link><em @click="logout()">注销</em></span>
+		<span><img v-if="$store.state.userinfo.img != '' && $store.state.userinfo.img != null && $store.state.userinfo.img != undefined" :src="$store.state.userinfo.img" />你好，<router-link to="/personal">{{$store.state.userinfo.realname}}</router-link><em @click="logout()">注销</em></span>
 	</div>
 </template>
 
