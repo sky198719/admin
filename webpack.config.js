@@ -134,7 +134,7 @@ module.exports = {
       ['dist'],
       {
         root:__dirname,
-        exclude:['json'],
+        exclude:['json','favicon.ico'],
         verbose:true,
         dry:false
       }
