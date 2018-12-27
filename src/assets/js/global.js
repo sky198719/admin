@@ -24,6 +24,6 @@ const getData = (type,url,data) => {
 	})
 }
 
-const localPath = '/dist/'
+const localPath = '/'
 
 export {getData,localPath}
