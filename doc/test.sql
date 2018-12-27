@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2018-12-21 17:57:25
+Date: 2018-12-27 16:52:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,15 +25,28 @@ CREATE TABLE `project` (
   `opentime` varchar(255) DEFAULT '',
   `limittime` varchar(255) DEFAULT '',
   `ownerid` varchar(255) DEFAULT '',
-  `point` varchar(255) DEFAULT '',
   `endtime` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of project
 -- ----------------------------
-INSERT INTO `project` VALUES ('23', '测试项目', '2018-11-11', '2018-12-01', '1', '5', '');
+INSERT INTO `project` VALUES ('31', '浦东北蔡项目引导页', '', '', '1', '');
+INSERT INTO `project` VALUES ('32', '浦东北蔡镇河道监控大屏', '', '', '1', '');
+INSERT INTO `project` VALUES ('33', '浦东北蔡镇环境监控大屏', '', '', '4', '');
+INSERT INTO `project` VALUES ('34', '浦东潍坊街道大屏项目', '', '', '12', '');
+INSERT INTO `project` VALUES ('35', '浦东潍坊后台管理', '', '', '4', '');
+INSERT INTO `project` VALUES ('36', '长妇幼网络监控可视化大屏项目', '', '', '4', '');
+INSERT INTO `project` VALUES ('37', '智能药店分析系统', '', '', '4', '');
+INSERT INTO `project` VALUES ('38', '街道智慧停车', '', '', '11', '');
+INSERT INTO `project` VALUES ('39', '信导短信服务', '', '', '4', '');
+INSERT INTO `project` VALUES ('40', '智能销售系统', '', '', '11', '');
+INSERT INTO `project` VALUES ('41', '精准营销短信渠道服务', '', '', '12', '');
+INSERT INTO `project` VALUES ('42', '存量维系大屏', '', '', '1', '');
+INSERT INTO `project` VALUES ('43', '存量维系功能页面', '', '', '11', '');
+INSERT INTO `project` VALUES ('44', '医保智能监督系统', '', '', '1', '');
+INSERT INTO `project` VALUES ('54', '浦东北蔡智能小区', '', '', '11', '');
 
 -- ----------------------------
 -- Table structure for tokenkey
@@ -60,15 +73,14 @@ CREATE TABLE `user` (
   `token` varchar(255) DEFAULT '',
   `usertype` varchar(255) NOT NULL DEFAULT '',
   `lastlogin` varchar(255) DEFAULT '',
+  `img` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'zhangjunjie', 'skycat8719', '张俊杰', '154538e0d10b30832e57ad1267ff0f8a5410076065256', '0', '2018/12/21 17:54:25');
-INSERT INTO `user` VALUES ('4', 'chengyaru', '123456', '程雅茹', '', '0', '2018/12/21 17:14:6');
-INSERT INTO `user` VALUES ('11', 'lijinhui', '123456', '李金辉', '', '0', '2018/12/21 13:53:42');
-INSERT INTO `user` VALUES ('12', 'donglei', '123456', '董雷', '', '0', '2018/12/21 17:54:7');
-INSERT INTO `user` VALUES ('57', 'test', '111111', '测试', '1545389ab090671ac73a9da8614c329081b16d4457024', '1', '2018/12/21 17:27:37');
-INSERT INTO `user` VALUES ('73', '132123', '333333', '1232', '', '1', '');
+INSERT INTO `user` VALUES ('1', 'zhangjunjie', 'skycat8719', '张俊杰', '154590f1d39ccf67155a5eacfb09b1e85c82971d80528325', '0', '2018/12/27 16:48:48', '/static/images/sculpture/1/G47fRYFG7mNxHDulA943C6da.jpg');
+INSERT INTO `user` VALUES ('4', 'chengyaru', '123456', '程雅茹', '154589f4d39da2ee2ff7ebbd0e52e4fde0fffbf1d9528106', '1', '2018/12/27 16:32:8', '');
+INSERT INTO `user` VALUES ('11', 'lijinhui', '123456', '李金辉', '', '1', '2018/12/27 16:32:1', '');
+INSERT INTO `user` VALUES ('12', 'donglei', '123456', '董雷', '', '1', '2018/12/26 17:54:12', '');

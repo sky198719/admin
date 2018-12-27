@@ -4,3 +4,10 @@
 ::1 POST /api/user/login 200 68.003 ms --- 66 Thu, 27 Dec 2018 08:44:53 GMT
 ::1 POST /api/user/checkToken 200 1.883 ms --- 183 Thu, 27 Dec 2018 08:44:53 GMT
 ::ffff:127.0.0.1 GET /api/user/userList 200 4.778 ms --- 537 Thu, 27 Dec 2018 08:44:53 GMT
+::ffff:127.0.0.1 POST /api/user/updataUserinfo 200 29.880 ms --- 35 Thu, 27 Dec 2018 08:45:39 GMT
+::1 POST /api/user/login 200 52.567 ms --- 66 Thu, 27 Dec 2018 08:45:45 GMT
+::1 POST /api/user/checkToken 200 2.737 ms --- 183 Thu, 27 Dec 2018 08:45:45 GMT
+::ffff:127.0.0.1 GET /api/user/userList 200 5.721 ms --- 540 Thu, 27 Dec 2018 08:45:45 GMT
+::ffff:127.0.0.1 GET /api/user/userList 304 2.077 ms --- - Thu, 27 Dec 2018 08:45:51 GMT
+::1 GET /api/user/userList 304 2.303 ms --- - Thu, 27 Dec 2018 08:46:01 GMT
+::ffff:127.0.0.1 POST /api/user/login 200 83.521 ms --- 66 Thu, 27 Dec 2018 08:48:48 GMT

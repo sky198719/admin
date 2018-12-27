@@ -24,6 +24,6 @@ const getData = (type,url,data) => {
 	})
 }
 
-const localPath = '/frontend/'
+const localPath = '/dist/'
 
 export {getData,localPath}

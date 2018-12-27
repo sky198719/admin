@@ -13,11 +13,11 @@ const app = express()
 
 const logDirectory = path.join(__dirname,'log')
 fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory)
-const fileDirectory = path.join('E:/myProject/html/','static')
+const fileDirectory = path.join('E:/myProject/admin','static')
 fs.existsSync(fileDirectory) || fs.mkdirSync(fileDirectory)
-const imgDirectory = path.join('E:/myProject/html/static/','images')
+const imgDirectory = path.join('E:/myProject/admin/static/','images')
 fs.existsSync(imgDirectory) || fs.mkdirSync(imgDirectory)
-const sculptureDirectory = path.join('E:/myProject/html/static/images/','sculpture')
+const sculptureDirectory = path.join('E:/myProject/admin/static/images/','sculpture')
 fs.existsSync(sculptureDirectory) || fs.mkdirSync(sculptureDirectory)
 const accessLogStream = FileStreamRotator.getStream({
   date_format:'YYYYMMDD',
@@ -87,10 +87,10 @@ function initToken(req,res,params,callback){
 
 app.post('/api/upload/uploadImg',function(req,res,params){
 	initToken(req,res,params,function(){
-		const idDirectory = path.join('E:/myProject/html/static/images/sculpture/',String(params.id))
+		const idDirectory = path.join('E:/myProject/admin/static/images/sculpture/',String(params.id))
 		fs.existsSync(idDirectory) || fs.mkdirSync(idDirectory)
 		let form = new multiparty.Form()
-		form.uploadDir = 'E:/myProject/html/static/images/sculpture/' + String(params.id)
+		form.uploadDir = 'E:/myProject/admin/static/images/sculpture/' + String(params.id)
 		form.maxFilesSize = 1024 * 1024 * 100
 		form.parse(req,function(err1,fields,files){
 			if(err1){
