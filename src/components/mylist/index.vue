@@ -41,6 +41,7 @@ export default{
 	},
 	mounted(){
 		this.myList()
+		this.$store.commit('setActive',2)
 	}
 }
 </script>

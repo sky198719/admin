@@ -162,6 +162,46 @@ app.get('/api/project/projectList',function(req,res,params){
 	})
 })
 
+app.get('/api/project/searchProject',function(req,res,params){
+	initToken(req,res,params,function(){
+		if(params.usertype == 0){
+			if(!req.query.searchname){
+				res.send(JSON.stringify({code:1,message:'缺少必要参数：项目名称'}))
+				return false
+			}else{
+				connection.query('select * from project where projectname like "%"?"%"',req.query.searchname,function(err1,results1){
+					if(err1){
+						res.send(err1)
+						return false
+					}else{
+						if(results1.length == 0){
+							res.send(JSON.stringify({code:2,message:'没有查询到相关信息'}))
+							return false
+						}else{
+							connection.query('select * from user',function(err2,results2){
+								let data = []
+								for(let i = 0 ; i < results1.length ; i ++){
+									let temprealname = ''
+									for(let j = 0 ; j < results2.length ; j ++){
+										if(results1[i].ownerid == results2[j].id){
+											temprealname = results2[j].realname
+										}
+									}
+									data.push({id:results1[i].id,projectname:results1[i].projectname,opentime:results1[i].opentime,limittime:results1[i].limittime,ownerid:results1[i].ownerid,endtime:results1[i].endtime,realname:temprealname})
+								}
+								res.send(JSON.stringify({code:0,message:'查询成功',data:data}))
+							})
+						}
+					}
+				})
+			}
+		}else{
+			res.send(JSON.stringify({code:3,message:'权限不足'}))
+			return false
+		}
+	})
+})
+
 app.post('/api/project/insertProject',function(req,res,params){
 	initToken(req,res,params,function(){
 		if(params.usertype == 0){

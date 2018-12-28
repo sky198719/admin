@@ -2,3 +2,6 @@
 ::1 POST /api/upload/uploadImg 200 73.229 ms --- 35 Thu, 27 Dec 2018 08:45:39 GMT
 ::1 POST /api/upload/uploadImg 200 62.056 ms --- 35 Thu, 27 Dec 2018 08:57:36 GMT
 ::ffff:127.0.0.1 POST /api/upload/uploadImg 200 55.249 ms --- 35 Thu, 27 Dec 2018 08:58:27 GMT
+::1 POST /api/upload/uploadImg 200 64.809 ms --- 35 Thu, 27 Dec 2018 09:04:22 GMT
+::ffff:127.0.0.1 POST /api/upload/uploadImg 200 55.399 ms --- 35 Thu, 27 Dec 2018 09:04:31 GMT
+::ffff:127.0.0.1 POST /api/upload/uploadImg 200 57.102 ms --- 35 Thu, 27 Dec 2018 09:24:05 GMT

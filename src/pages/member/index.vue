@@ -24,7 +24,6 @@ export default{
 			.then((res) => {
 				if(res.code == 0){
 					this.$store.commit('setUserinfo',{id:res.data.id,username:res.data.username,realname:res.data.realname,usertype:res.data.usertype,img:res.data.img})
-					this.$store.commit('setActive',2)
 				}else{
 					alert(res.message)
 					window.location.href = './../login'

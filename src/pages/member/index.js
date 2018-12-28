@@ -31,7 +31,7 @@ const router = new VueRouter({
 
 const store = new Vuex.Store({
 	state:{
-		active:0,
+		active:2,
 		refresh:false,
 		userinfo:''
 	},

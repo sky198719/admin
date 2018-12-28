@@ -1,0 +1,1 @@
+e:&cd /&forever stopall&forever start myProject/admin/server/user/index.js&forever start myProject/admin/server/project/index.js&forever start myProject/admin/server/upload/index.js&e:&cd myProject&cd admin&npm run build

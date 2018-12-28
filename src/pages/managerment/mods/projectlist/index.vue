@@ -120,16 +120,23 @@ export default{
 	mounted(){
 		this.projectList()
 		this.userList()
+		this.$store.commit('setActive',1)
 	},
 	computed:{
 		refresh(){
 			return this.$store.state.refresh
+		},
+		project(){
+			return this.$store.state.project
 		}
 	},
 	watch:{
 		refresh(newVal,oldVal){
 			this.projectList()
 			this.$store.commit('setRefresh',false)
+		},
+		project(newVal,oldVal){
+			this.projectlist = this.$store.state.project
 		}
 	}
 }

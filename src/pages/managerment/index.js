@@ -45,7 +45,8 @@ const store = new Vuex.Store({
 	state:{
 		active:0,
 		refresh:false,
-		userinfo:''
+		userinfo:'',
+		project:[]
 	},
 	mutations:{
 		setActive(state,active){
@@ -56,6 +57,9 @@ const store = new Vuex.Store({
 		},
 		setUserinfo(state,userinfo){
 			state.userinfo = userinfo
+		},
+		setProject(state,project){
+			state.project = project
 		}
 	},
 	plugins:[VuexAlong]

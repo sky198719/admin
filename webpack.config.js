@@ -149,28 +149,28 @@ module.exports = {
     historyApiFallback:true,
     inline:true,
     hot:true,
-    // proxy:{
-    //   '/api/user':{
-    //     target:'http://localhost:3001/api/user',
-    //     changeOrigin:true,
-    //     pathRewrite:{
-    //       "^/api/user":""
-    //     }
-    //   },
-    //   '/api/project':{
-    //     target:'http://localhost:3002/api/project',
-    //     changeOrigin:true,
-    //     pathRewrite:{
-    //       "^/api/project":""
-    //     }
-    //   },
-    //   '/api/upload':{
-    //     target:'http://localhost:3003/api/upload',
-    //     changeOrigin:true,
-    //     pathRewrite:{
-    //       "^/api/upload":""
-    //     }
-    //   }
-    // }
+    proxy:{
+      '/api/user':{
+        target:'http://localhost:3001/api/user',
+        changeOrigin:true,
+        pathRewrite:{
+          "^/api/user":""
+        }
+      },
+      '/api/project':{
+        target:'http://localhost:3002/api/project',
+        changeOrigin:true,
+        pathRewrite:{
+          "^/api/project":""
+        }
+      },
+      '/api/upload':{
+        target:'http://localhost:3003/api/upload',
+        changeOrigin:true,
+        pathRewrite:{
+          "^/api/upload":""
+        }
+      }
+    }
   }
 }

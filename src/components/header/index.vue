@@ -6,6 +6,7 @@
 			<li attr-id="2" :class="$store.state.active == 2 ? 'current' : ''" @click="getCurrentId($event)"><router-link :to="'/mylist/' + $store.state.userinfo.id">我的项目</router-link></li>
 			<li @click="insertUser()">新增用户</li>
 			<li @click="insertProject()">新增项目</li>
+			<li @click="isSearch == false ? searchProject() : projectList()" v-if="$store.state.active == 1" v-text="isSearch == false ? '搜索项目' : '取消搜索'"></li>
 		</ul>
 		<ul v-if="$store.state.userinfo.usertype == 1">
 			<li attr-id="2" :class="$store.state.active == 2 ? 'current' : ''" @click="getCurrentId($event)"><router-link :to="'/mylist/' + $store.state.userinfo.id">我的项目</router-link></li>
@@ -18,6 +19,11 @@
 import {getData} from './../../assets/js/global.js'
 
 export default{
+	data(){
+		return{
+			isSearch:false
+		}
+	},
 	methods:{
 		getCurrentId(e){
 			this.$store.commit('setActive',e.currentTarget.getAttribute('attr-id'))
@@ -75,6 +81,35 @@ export default{
 					}
 				})
 			}
+		},
+		searchProject(){
+			let searchname = prompt('请输入搜索内容')
+			if(!searchname){
+				return false
+			}else{
+				getData('get','/api/project/searchProject?searchname=' + searchname)
+				.then((res) => {
+					if(res.code == 0){
+						this.$store.commit('setProject',res.data)
+						this.isSearch = true
+					}else{
+						alert(res.message)
+						return false
+					}
+				})
+			}
+		},
+		projectList(){
+			getData('get','/api/project/projectList')
+			.then((res) => {
+				if(res.code == 0){
+					this.$store.commit('setProject',res.data)
+					this.isSearch = false
+				}else{
+					alert(res.message)
+					return false
+				}
+			})
 		},
 		logout(){
 			if(confirm('是否登出？') == true){

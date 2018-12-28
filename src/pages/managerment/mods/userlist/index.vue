@@ -78,6 +78,7 @@ export default{
 	},
 	mounted(){
 		this.userList()
+		this.$store.commit('setActive',0)
 	},
 	computed:{
 		refresh(){
