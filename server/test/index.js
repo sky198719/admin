@@ -37,7 +37,7 @@ var ws = require('nodejs-websocket')
 var PORT = 5003
 
 var server = ws.createServer(function(conn){
-    conn.on("text",function(str){
+    conn.on('text',function(str){
     	connection.query('select * from user',function(err,result){
 			if(err){
 				res.send(err)
@@ -47,11 +47,11 @@ var server = ws.createServer(function(conn){
 			}
 		})
     })
-    conn.on("close",function(code,reason){
-        
+    conn.on('close',function(code,reason){
+        conn.sendText('服务已关闭')
     })
-    conn.on("error",function(err){
-        console.log(err)
+    conn.on('error',function(err){
+        conn.sendText('链接错误')
     })
 }).listen(PORT)
  

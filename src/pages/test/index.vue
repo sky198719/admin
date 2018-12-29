@@ -17,14 +17,16 @@ export default{
 			const _this = this
 			this.WebSocket = new WebSocket("ws://localhost:5003/")
 			this.WebSocket.onopen = function(e){
-			    console.log('websocket open')
 			    _this.WebSocket.send('supply')
 			}
 			this.WebSocket.onclose = function(e){
-			    console.log('websocket close')
+			    console.log(e)
 			}
 			this.WebSocket.onmessage = function(e){
 			    console.log(e.data)
+			}
+			this.WebSocket.onerror = function(e){
+				console.log(e)
 			}
 		}
 	},
