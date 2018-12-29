@@ -3,3 +3,6 @@
 ::ffff:127.0.0.1 GET /api/user/userList 200 23.073 ms --- 540 Sat, 29 Dec 2018 05:28:51 GMT
 ::ffff:127.0.0.1 GET /api/user/userList 304 2.141 ms --- - Sat, 29 Dec 2018 05:28:55 GMT
 ::ffff:127.0.0.1 GET /api/user/userList 304 1.784 ms --- - Sat, 29 Dec 2018 05:28:56 GMT
+::ffff:127.0.0.1 POST /api/user/login 200 142.483 ms --- 66 Sat, 29 Dec 2018 06:07:17 GMT
+::ffff:127.0.0.1 GET /api/user/userList 200 2.790 ms --- 539 Sat, 29 Dec 2018 06:07:17 GMT
+::ffff:127.0.0.1 POST /api/user/checkToken 200 2.008 ms --- 183 Sat, 29 Dec 2018 06:07:17 GMT
