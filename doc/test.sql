@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2018-12-27 16:52:24
+Date: 2018-12-29 15:15:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `project` (
   `ownerid` varchar(255) DEFAULT '',
   `endtime` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of project
@@ -47,6 +47,8 @@ INSERT INTO `project` VALUES ('42', '存量维系大屏', '', '', '1', '');
 INSERT INTO `project` VALUES ('43', '存量维系功能页面', '', '', '11', '');
 INSERT INTO `project` VALUES ('44', '医保智能监督系统', '', '', '1', '');
 INSERT INTO `project` VALUES ('54', '浦东北蔡智能小区', '', '', '11', '');
+INSERT INTO `project` VALUES ('55', '潍坊视频分析大屏', '', '', '4', '');
+INSERT INTO `project` VALUES ('56', '智能外呼系统', '', '', '12', '');
 
 -- ----------------------------
 -- Table structure for tokenkey
@@ -73,14 +75,14 @@ CREATE TABLE `user` (
   `token` varchar(255) DEFAULT '',
   `usertype` varchar(255) NOT NULL DEFAULT '',
   `lastlogin` varchar(255) DEFAULT '',
-  `img` varchar(255) DEFAULT NULL,
+  `img` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'zhangjunjie', 'skycat8719', '张俊杰', '154590f1d39ccf67155a5eacfb09b1e85c82971d80528325', '0', '2018/12/27 16:48:48', '/static/images/sculpture/1/G47fRYFG7mNxHDulA943C6da.jpg');
+INSERT INTO `user` VALUES ('1', 'zhangjunjie', 'skycat8719', '张俊杰', '154606f1dfc85c143c4d2f9a0bcd5f0140698e4f06997188', '0', '2018/12/29 15:3:17', '/static/images/sculpture/1/E8FooIg6EN5rYdmV9IOPDU7s.png');
 INSERT INTO `user` VALUES ('4', 'chengyaru', '123456', '程雅茹', '154589f4d39da2ee2ff7ebbd0e52e4fde0fffbf1d9528106', '1', '2018/12/27 16:32:8', '');
-INSERT INTO `user` VALUES ('11', 'lijinhui', '123456', '李金辉', '', '1', '2018/12/27 16:32:1', '');
-INSERT INTO `user` VALUES ('12', 'donglei', '123456', '董雷', '', '1', '2018/12/26 17:54:12', '');
+INSERT INTO `user` VALUES ('11', 'lijinhui', '111111', '李金辉', '', '1', '2018/12/28 10:50:3', '/static/images/sculpture/11/P3HXqJhd6dOa1eiPM3eh85R7.png');
+INSERT INTO `user` VALUES ('12', 'donglei', '111111', '董雷', '', '1', '2018/12/28 10:50:15', '/static/images/sculpture/12/x0uP-G6QjHkUgpc5RBRAGJwz.png');
