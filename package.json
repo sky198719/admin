@@ -33,6 +33,7 @@
     "multiparty": "^4.2.1",
     "mysql": "^2.16.0",
     "node-sass": "^4.9.3",
+    "nodejs-websocket": "^1.7.2",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "path": "^0.12.7",
     "sass-loader": "^7.1.0",

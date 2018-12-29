@@ -11,7 +11,8 @@ module.exports = {
   entry:{
     login:'./src/pages/login/index.js',
     managerment:'./src/pages/managerment/index.js',
-    member:'./src/pages/member/index.js'
+    member:'./src/pages/member/index.js',
+    test:'./src/pages/test/index.js'
   },
   output:{
     path:__dirname + "/dist/",
@@ -127,6 +128,14 @@ module.exports = {
         collapseWhitespace:true,
       }
     }),
+    new HtmlWebpackPlugin({
+      filename:__dirname + '/dist/test/index.html',
+      template:__dirname + '/src/pages/test/index.html',
+      chunks:['test'],
+      minify:{
+        collapseWhitespace:true,
+      }
+    }),
     new ExtractTextPlugin({filename:'[name]/[name].[hash].css',allChunks:true}),
     new VueLoaderPlugin(),
     new uglifyjs(),
@@ -169,6 +178,13 @@ module.exports = {
         changeOrigin:true,
         pathRewrite:{
           "^/api/upload":""
+        }
+      },
+      '/api/test':{
+        target:'http://localhost:5003/api/test',
+        changeOrigin:true,
+        pathRewrite:{
+          "^/api/test":""
         }
       }
     }
