@@ -322,7 +322,7 @@ app.post('/api/user/login',function(req,res){
 					return false
 				}else{
 					if(req.body.username == results1[0].username && req.body.password == results1[0].password){
-						connection.query('select * from tokenKey',function(err2,results2){
+						connection.query('select * from tokenkey',function(err2,results2){
 							let token = String(new Date().getTime()).substring(0,6) + 'f' + results1[0].id + 'd' + crypto.createHash('md5').update(String(req.body.username) + String(results2[0].key) + String(new Date().getTime())).digest('hex') + String(new Date().getTime()).substring(6,13)
 							connection.query('update user set token = ?,lastlogin = ? where username = ?',[token,new Date().getFullYear() + '/' + parseInt(new Date().getMonth() + 1) + '/' + new Date().getDate() + ' ' + new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds(),req.body.username],function(err3,results3){
 								if(err3){
