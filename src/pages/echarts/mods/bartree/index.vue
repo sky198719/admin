@@ -1,5 +1,5 @@
 <template>
-	<div :class="lineTreeData.obj" :lineTreeData="lineTreeData"></div>
+	<div :class="barTreeData.obj" :barTreeData="barTreeData"></div>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default{
 		}
 	},
 	props:{
-		lineTreeData:''
+		barTreeData:''
 	},
 	methods:{
 		seriesInit(obj){
@@ -80,7 +80,7 @@ export default{
 		},
 		lineTree(params){
 			const _this = this
-			_this.seriesInit(_this.lineTreeData.series)
+			_this.seriesInit(_this.barTreeData.series)
 			echarts.init(document.querySelector(params.obj)).setOption({
 				title:{
 			        text:params.title.text,
@@ -139,32 +139,32 @@ export default{
 		linetreeInit(){
 			const _this = this
 			_this.lineTree({
-				obj:'.' + _this.lineTreeData.obj,
-				title:_this.lineTreeData.title != undefined ? {
-					text:_this.lineTreeData.title.text != undefined ? _this.lineTreeData.title.text : '',
-					subtext:_this.lineTreeData.title.subtext != undefined ? _this.lineTreeData.title.subtext : ''
+				obj:'.' + _this.barTreeData.obj,
+				title:_this.barTreeData.title != undefined ? {
+					text:_this.barTreeData.title.text != undefined ? _this.barTreeData.title.text : '',
+					subtext:_this.barTreeData.title.subtext != undefined ? _this.barTreeData.title.subtext : ''
 				} : '',
-				legend:_this.lineTreeData.legend != undefined ? {
-					align:_this.lineTreeData.legend.align != undefined ? _this.lineTreeData.legend.align : 'left',
-					top:_this.lineTreeData.legend.top != undefined ? _this.lineTreeData.legend.top : 0,
-					left:_this.lineTreeData.legend.left != undefined ? _this.lineTreeData.legend.left : 0
+				legend:_this.barTreeData.legend != undefined ? {
+					align:_this.barTreeData.legend.align != undefined ? _this.barTreeData.legend.align : 'left',
+					top:_this.barTreeData.legend.top != undefined ? _this.barTreeData.legend.top : 0,
+					left:_this.barTreeData.legend.left != undefined ? _this.barTreeData.legend.left : 0
 				} : '',
 				xAxis:{
-					data:_this.lineTreeData.xAxis.data,
-					textcolor:_this.lineTreeData.xAxis.textcolor != undefined ? _this.lineTreeData.xAxis.textcolor : '#000000',
-					linecolor:_this.lineTreeData.xAxis.linecolor != undefined ? _this.lineTreeData.xAxis.linecolor : '#000000',
-					linewidth:_this.lineTreeData.xAxis.linewidth != undefined ? _this.lineTreeData.xAxis.linewidth : 1,
-					axisTick:_this.lineTreeData.xAxis.axisTick != undefined ? _this.lineTreeData.xAxis.axisTick : false,
-					axisLine:_this.lineTreeData.xAxis.axisLine != undefined ? _this.lineTreeData.xAxis.axisLine : true,
-					splitLine:_this.lineTreeData.xAxis.splitLine != undefined ? _this.lineTreeData.xAxis.splitLine : false
+					data:_this.barTreeData.xAxis.data,
+					textcolor:_this.barTreeData.xAxis.textcolor != undefined ? _this.barTreeData.xAxis.textcolor : '#000000',
+					linecolor:_this.barTreeData.xAxis.linecolor != undefined ? _this.barTreeData.xAxis.linecolor : '#000000',
+					linewidth:_this.barTreeData.xAxis.linewidth != undefined ? _this.barTreeData.xAxis.linewidth : 1,
+					axisTick:_this.barTreeData.xAxis.axisTick != undefined ? _this.barTreeData.xAxis.axisTick : false,
+					axisLine:_this.barTreeData.xAxis.axisLine != undefined ? _this.barTreeData.xAxis.axisLine : true,
+					splitLine:_this.barTreeData.xAxis.splitLine != undefined ? _this.barTreeData.xAxis.splitLine : false
 				},
-				yAxis:_this.lineTreeData.yAxis != undefined ? {
-					textcolor:_this.lineTreeData.yAxis.textcolor != undefined ? _this.lineTreeData.yAxis.textcolor : '#000000',
-					linecolor:_this.lineTreeData.yAxis.linecolor != undefined ? _this.lineTreeData.yAxis.linecolor : '#000000',
-					linewidth:_this.lineTreeData.yAxis.linewidth != undefined ? _this.lineTreeData.yAxis.linewidth : 1,
-					axisTick:_this.lineTreeData.yAxis.axisTick != undefined ? _this.lineTreeData.yAxis.axisTick : false,
-					axisLine:_this.lineTreeData.yAxis.axisLine != undefined ? _this.lineTreeData.yAxis.axisLine : true,
-					splitLine:_this.lineTreeData.yAxis.splitLine != undefined ? _this.lineTreeData.yAxis.splitLine : true
+				yAxis:_this.barTreeData.yAxis != undefined ? {
+					textcolor:_this.barTreeData.yAxis.textcolor != undefined ? _this.barTreeData.yAxis.textcolor : '#000000',
+					linecolor:_this.barTreeData.yAxis.linecolor != undefined ? _this.barTreeData.yAxis.linecolor : '#000000',
+					linewidth:_this.barTreeData.yAxis.linewidth != undefined ? _this.barTreeData.yAxis.linewidth : 1,
+					axisTick:_this.barTreeData.yAxis.axisTick != undefined ? _this.barTreeData.yAxis.axisTick : false,
+					axisLine:_this.barTreeData.yAxis.axisLine != undefined ? _this.barTreeData.yAxis.axisLine : true,
+					splitLine:_this.barTreeData.yAxis.splitLine != undefined ? _this.barTreeData.yAxis.splitLine : true
 				} : {
 					textcolor:'#000000',
 					linecolor:'#000000',
@@ -173,7 +173,7 @@ export default{
 					axisLine:true,
 					splitLine:true
 				},
-				series:_this.lineTreeData.series
+				series:_this.barTreeData.series
 			})
 		}
 	},

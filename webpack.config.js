@@ -12,7 +12,7 @@ module.exports = {
     login:'./src/pages/login/index.js',
     managerment:'./src/pages/managerment/index.js',
     member:'./src/pages/member/index.js',
-    test:'./src/pages/test/index.js'
+    echarts:'./src/pages/echarts/index.js'
   },
   output:{
     path:__dirname + "/dist/",
@@ -129,9 +129,9 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      filename:__dirname + '/dist/test/index.html',
-      template:__dirname + '/src/pages/test/index.html',
-      chunks:['test'],
+      filename:__dirname + '/dist/echarts/index.html',
+      template:__dirname + '/src/pages/echarts/index.html',
+      chunks:['echarts'],
       minify:{
         collapseWhitespace:true,
       }
@@ -178,13 +178,6 @@ module.exports = {
         changeOrigin:true,
         pathRewrite:{
           "^/api/upload":""
-        }
-      },
-      '/api/test':{
-        target:'http://localhost:5003/api/test',
-        changeOrigin:true,
-        pathRewrite:{
-          "^/api/test":""
         }
       }
     }
