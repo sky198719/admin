@@ -12,7 +12,8 @@ module.exports = {
     login:'./src/pages/login/index.js',
     managerment:'./src/pages/managerment/index.js',
     member:'./src/pages/member/index.js',
-    echarts:'./src/pages/echarts/index.js'
+    echarts:'./src/pages/echarts/index.js',
+    mui:'./src/pages/mui/index.js'
   },
   output:{
     path:__dirname + "/dist/",
@@ -132,6 +133,14 @@ module.exports = {
       filename:__dirname + '/dist/echarts/index.html',
       template:__dirname + '/src/pages/echarts/index.html',
       chunks:['echarts'],
+      minify:{
+        collapseWhitespace:true,
+      }
+    }),
+    new HtmlWebpackPlugin({
+      filename:__dirname + '/dist/mui/index.html',
+      template:__dirname + '/src/pages/mui/index.html',
+      chunks:['mui'],
       minify:{
         collapseWhitespace:true,
       }

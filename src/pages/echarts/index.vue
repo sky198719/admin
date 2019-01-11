@@ -25,7 +25,7 @@ export default{
 					linewidth:1, //x轴坐标宽度 默认值为1 非必传
 					axisTick:true, //x轴坐标下钩显示 默认值为false 非必传
 					axisLine:true, //x轴坐标显示 默认值为true 非必传
-					splitLine:true, //x轴网格显示 默认值为false 非必传
+					splitLine:false, //x轴网格显示 默认值为false 非必传
 					data:['星期一','星期二','星期三','星期四','星期五','星期六','星期日'] //x轴坐标
 				},
 				yAxis:{ //y轴 非必传
