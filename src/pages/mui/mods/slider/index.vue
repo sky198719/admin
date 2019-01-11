@@ -128,9 +128,6 @@ export default{
 			line-height:20px;
 			cursor:pointer;
 		}
-		.current{
-			
-		}
 	}
 }
 </style>
