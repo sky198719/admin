@@ -2,9 +2,10 @@
 	<div :class="sliderData.obj" :sliderData="sliderData" :style="{width:sliderData.width + 'px',height:sliderData.height + 'px'}" @mouseover="handleMouseover()" @mouseout="handleMouseout()">
 		<ul :style="{width:sliderData.width * sliderData.imgObj.length + 'px',height:sliderData.height + 'px'}">
 			<li v-for="(item,index) in sliderData.imgObj" :key="index" :style="{width:sliderData.width + 'px',height:sliderData.height + 'px'}">
-				<a :href="item.href">
+				<a :href="item.href" :target="sliderData.openWindow == true ? '_blank' : '_self'">
 					<img :src="item.imgUrl" :style="{width:sliderData.width + 'px',height:sliderData.height + 'px'}" />
 				</a>
+				<div v-if="sliderData.titleObj.show" :style="{height:sliderData.titleObj.height + 'px',lineHeight:sliderData.titleObj.height + 'px',top:sliderData.titleObj.top + 'px',color:sliderData.titleObj.color,background:sliderData.titleObj.background,opacity:sliderData.titleObj.opacity,textAlign:sliderData.titleObj.align,fontSize:sliderData.titleObj.fontsize + 'px'}">{{item.title}}</div>
 			</li>
 		</ul>
 		<ol :style="{marginLeft:-((sliderData.ctrObj.width + sliderData.ctrObj.margin) * sliderData.imgObj.length)/2 + 'px',height:sliderData.ctrObj.height + 'px',bottom:sliderData.ctrObj.bottom + 'px'}">
@@ -50,12 +51,14 @@ export default{
 						_this.moveRange -= _this.sliderData.singalSpeed
 						document.querySelector('.' + _this.sliderData.obj).getElementsByTagName('ul')[0].style.marginLeft = _this.moveRange + 'px'
 						if(parseInt(document.querySelector('.' + _this.sliderData.obj).getElementsByTagName('ul')[0].style.marginLeft) <= -_this.sliderData.width * _this.currentSlider){
+							document.querySelector('.' + _this.sliderData.obj).getElementsByTagName('ul')[0].style.marginLeft = -_this.sliderData.width * _this.currentSlider
 							clearInterval(_this.t2)
 						}
 					}else{
 						_this.moveRange += (_this.sliderData.singalSpeed * (_this.sliderData.imgObj.length - 1))
 						document.querySelector('.' + _this.sliderData.obj).getElementsByTagName('ul')[0].style.marginLeft = _this.moveRange + 'px'
 						if(parseInt(document.querySelector('.' + _this.sliderData.obj).getElementsByTagName('ul')[0].style.marginLeft) >= 0){
+							document.querySelector('.' + _this.sliderData.obj).getElementsByTagName('ul')[0].style.marginLeft = -_this.sliderData.width * _this.currentSlider
 							clearInterval(_this.t2)
 						}
 					}
@@ -111,9 +114,17 @@ export default{
 		li{
 			float:left;
 			display:inline;
+			position:relative;
 			img{
 				display:block;
 				border:none;
+			}
+			div{
+				width:100%;
+				padding:0 15px;
+				position:absolute;
+				left:0;
+				box-sizing:border-box;
 			}
 		}
 	}
