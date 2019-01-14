@@ -10,11 +10,11 @@ export default{
 		return{
 			sliderData:{
 				obj:'slider', //对象
-				singalSpeed:5, //单张切换速度，数字越大越快
+				singalSpeed:15, //单张切换速度，数字越大越快
 				sliderSpeed:3000, //轮播速度，数字越大越慢
 				width:300, //应用宽度
 				height:150, //应用高度
-				openWindow:true, //是否打开新创口
+				openWindow:true, //是否打开新窗口
 				ctrObj:{ //控制件
 					width:10, //控制件宽度
 					height:10, //控制件高度
