@@ -131,5 +131,59 @@ export default{
 </script>
 
 <style lang="scss" type="text/css">
-
+.header{
+	width:1200px;
+	height:50px;
+	margin:0 auto;
+	position:relative;
+	ul{
+		width:1000px;
+		height:50px;
+		li{
+			width:150px;
+			height:50px;
+			line-height:50px;
+			float:left;
+			display:inline;
+			cursor:pointer;
+			a{
+				color:#000000;
+				display:block;
+			}
+		}
+		.current{
+			color:#0000ff;
+			a{
+				color:#0000ff;
+			}
+		}
+	}
+	span{
+		width:200px;
+		height:50px;
+		line-height:50px;
+		top:0;
+		right:0;
+		position:absolute;
+		display:block;
+		text-align:right;
+		a{
+			color:#0000ff;
+		}
+		em{
+			font-style:normal;
+			line-height:50px;
+			margin-left:10px;
+			cursor:pointer;
+		}
+		img{
+			width:30px;
+			height:30px;
+			top:10px;
+			left:10px;
+			position:absolute;
+			border-radius:50%;
+		}
+	}
+}
 </style>
