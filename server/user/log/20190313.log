@@ -1,0 +1,7 @@
+::1 GET //api/user/userList 404 3.912 ms --- 157 Wed, 13 Mar 2019 08:40:54 GMT
+::1 GET /favicon.ico 404 0.300 ms --- 150 Wed, 13 Mar 2019 08:40:54 GMT
+::1 GET /api/user/userList 200 2.119 ms --- 38 Wed, 13 Mar 2019 08:40:57 GMT
+::1 GET /api/user/userList 304 3.417 ms --- - Wed, 13 Mar 2019 08:41:15 GMT
+::ffff:127.0.0.1 GET /api/user/userList 200 0.564 ms --- 38 Wed, 13 Mar 2019 08:41:28 GMT
+::1 GET /api/user/userList 304 0.233 ms --- - Wed, 13 Mar 2019 08:42:03 GMT
+::1 GET /api/user/userList 304 0.243 ms --- - Wed, 13 Mar 2019 08:42:10 GMT
